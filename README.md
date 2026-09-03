@@ -43,10 +43,10 @@ View on GitHub
 
 🌐 Deployment
 This project is deployed on Vercel.
-Live demo: https://wdd430-portfolio.vercel.app
+Live demo: https://wdd430-portfolio-two-hazel.vercel.app/
 
 📄 Submission Deliverables
-Deployed Vercel Application: https://wdd430-portfolio.vercel.app
+Deployed Vercel Application: https://wdd430-portfolio-two-hazel.vercel.app/
 
 GitHub Repository: https://github.com/havor13/wdd430-portfolio
 
