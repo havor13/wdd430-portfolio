@@ -1,36 +1,60 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Sampson Havor Portfolio
 
-## Getting Started
+This is a portfolio project built with [Next.js](https://nextjs.org) using the App Router, TypeScript, and Tailwind CSS.  
+It showcases my recent projects and demonstrates reusable components, file-based routing, and deployment with Vercel.
 
-First, run the development server:
+---
+
+## 🚀 Getting Started
+
+Clone the repository:
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+git clone https://github.com/havor13/wdd430-portfolio.git
+cd wdd430-portfolio
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+🛠️ Technologies Used
+Next.js (App Router)
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+React
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+TypeScript
 
-## Learn More
+Tailwind CSS
 
-To learn more about Next.js, take a look at the following resources:
+MongoDB / PostgreSQL / APIs (depending on project)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+📌 Featured Projects
+Smart Study Planner  
+A Next.js app that helps students organize tasks, deadlines, and study schedules with a MongoDB backend.
+View on GitHub
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+E-Commerce Dashboard  
+A full-stack Next.js app for managing products, orders, and analytics with a responsive UI.
+View on GitHub
 
-## Deploy on Vercel
+Weather Application  
+A React app that fetches and displays real-time weather data from an external API.
+View on GitHub
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+StudentTrackerApp  
+An Android app built with Kotlin and Jetpack Compose that allows users to input student names, save them using DataStore persistence, and view the stored list on a second screen.
+View on GitHub
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+🌐 Deployment
+This project is deployed on Vercel.
+Live demo: https://wdd430-portfolio.vercel.app
+
+📄 Submission Deliverables
+Deployed Vercel Application: https://wdd430-portfolio.vercel.app
+
+GitHub Repository: https://github.com/havor13/wdd430-portfolio
+
+Custom Component: SkillCard.tsx — displays a skill name and proficiency level.
+
+❓ Questions
+What is the purpose of app/layout.tsx in the Next.js App Router?  
+It defines the root layout shared across all pages, including global styles, navigation, and footer, ensuring consistent structure.
+
+Why are the components in this assignment Server Components rather than Client Components?  
+Server Components run on the server by default, improving performance and SEO, reducing client-side JavaScript, and making pages faster and more efficient.
