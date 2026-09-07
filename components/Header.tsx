@@ -1,4 +1,4 @@
-import Link from 'next/link';
+import Link from "next/link";
 
 export default function Header() {
   return (
@@ -7,8 +7,26 @@ export default function Header() {
         <h1 className="text-2xl font-bold">Sampson Havor</h1>
         <nav>
           <ul className="flex gap-6">
-            <li><Link href="/" className="hover:underline">Home</Link></li>
-            <li><Link href="/about" className="hover:underline">About</Link></li>
+            <li>
+              <Link href="/" className="hover:underline">
+                Home
+              </Link>
+            </li>
+            <li>
+              <Link href="/about" className="hover:underline">
+                About
+              </Link>
+            </li>
+            <li>
+              <Link href="/projects" className="hover:underline">
+                Projects
+              </Link>
+            </li>
+            <li>
+              <Link href="/contact" className="hover:underline">
+                Contact
+              </Link>
+            </li>
           </ul>
         </nav>
       </div>
