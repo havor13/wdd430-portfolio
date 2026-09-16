@@ -27,7 +27,9 @@ export default function RootLayout({
   return (
     <html
       lang="en"
+      // Only include deterministic class names here
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      suppressHydrationWarning
     >
       <body className="min-h-full flex flex-col bg-gray-100 text-gray-900">
         <Header />

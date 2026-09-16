@@ -1,3 +1,4 @@
+// app/projects/[id]/page.tsx
 import { getProjectById } from "@/lib/projects-db";
 
 export default async function ProjectDetailPage({
@@ -5,11 +6,11 @@ export default async function ProjectDetailPage({
 }: {
   params: Promise<{ id: string }>;
 }) {
-  // Unwrap the params promise
+  // ✅ Unwrap the params promise
   const { id: idParam } = await params;
-
   const id = parseInt(idParam, 10);
-  const project = getProjectById(id);
+
+  const project = await getProjectById(id);
 
   if (!project) {
     return (

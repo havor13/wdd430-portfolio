@@ -1,42 +1,57 @@
 // lib/projects-db.ts
+import { sql } from '@vercel/postgres';
+
 export interface Project {
   id: number;
   title: string;
   description: string;
-  type: "opensource" | "school";
+  type: 'opensource' | 'school';
   technologies: string[];
   link?: string;
 }
 
-export const projects: Project[] = [
-  {
-    id: 1,
-    title: "My First Open Source Contribution",
-    description: "A bug fix contributed to a popular library.",
-    type: "opensource",
-    technologies: ["TypeScript", "React"],
-    link: "https://github.com/havor13/wdd430-portfolio",
-  },
-  {
-    id: 2,
-    title: "Database Design Final Project",
-    description: "An ER diagram and normalized schema for a library system.",
-    type: "school",
-    technologies: ["PostgreSQL", "SQL"],
-  },
-];
+// Ensure we have a connection string before querying
+function ensureConnection() {
+  const conn =
+    process.env.POSTGRES_URL ||
+    process.env.DATABASE_URL ||
+    process.env.POSTGRES_PRISMA_URL;
 
-// Filter projects by type (optional)
-export function getProjects(type?: string | null): Project[] {
-  if (type) {
-    return projects.filter((p) => p.type === type);
+  if (!conn) {
+    throw new Error(
+      "Missing Postgres connection string. Please set POSTGRES_URL or DATABASE_URL in your environment variables."
+    );
   }
-  return projects;
 }
 
-// Get a single project by ID
-export function getProjectById(id: number): Project | null {
-  // Ensure id is an integer before comparing
-  const project = projects.find((p) => p.id === id);
-  return project ?? null;
+export async function getProjects(type?: string | null): Promise<Project[]> {
+  ensureConnection();
+
+  try {
+    if (type) {
+      const { rows } = await sql<Project>`
+        SELECT * FROM projects WHERE type = ${type} ORDER BY id
+      `;
+      return rows;
+    }
+    const { rows } = await sql<Project>`SELECT * FROM projects ORDER BY id`;
+    return rows;
+  } catch (err) {
+    console.error("Error in getProjects:", err);
+    throw err;
+  }
+}
+
+export async function getProjectById(id: number): Promise<Project | null> {
+  ensureConnection();
+
+  try {
+    const { rows } = await sql<Project>`
+      SELECT * FROM projects WHERE id = ${id}
+    `;
+    return rows[0] ?? null;
+  } catch (err) {
+    console.error("Error in getProjectById:", err);
+    throw err;
+  }
 }
