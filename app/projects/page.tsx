@@ -1,8 +1,14 @@
 export default async function ProjectsOverview() {
-  // Fetch all projects from the API
-  const res = await fetch("http://localhost:3000/api/projects", {
-    cache: "no-store", // ensures fresh data on each request
+  const baseUrl = process.env.NEXT_PUBLIC_API_URL;
+
+  const res = await fetch(`${baseUrl}/api/projects`, {
+    cache: "no-store",
   });
+
+  if (!res.ok) {
+    throw new Error("Failed to fetch projects");
+  }
+
   const projects = await res.json();
 
   return (
@@ -11,7 +17,6 @@ export default async function ProjectsOverview() {
       <p className="text-lg text-gray-700 mb-6">
         Explore my open source and school projects below.
       </p>
-
       <ul className="space-y-4">
         {projects.map((project: any) => (
           <li key={project.id} className="border p-4 rounded-md shadow-sm">
