@@ -1,5 +1,8 @@
+import { getBaseUrl } from "@/utils/getBaseUrl";
+
 export default async function ProjectsOverview() {
-  const baseUrl = process.env.NEXT_PUBLIC_API_URL;
+  // ✅ Await the helper since it’s async
+  const baseUrl = await getBaseUrl();
 
   const res = await fetch(`${baseUrl}/api/projects`, {
     cache: "no-store",

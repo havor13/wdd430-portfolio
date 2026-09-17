@@ -4,11 +4,10 @@ import { getProjectById } from "@/lib/projects-db";
 export default async function ProjectDetailPage({
   params,
 }: {
-  params: Promise<{ id: string }>;
+  params: { id: string };
 }) {
-  // ✅ Unwrap the params promise
-  const { id: idParam } = await params;
-  const id = parseInt(idParam, 10);
+  // ✅ params is already an object, no need to await
+  const id = parseInt(params.id, 10);
 
   const project = await getProjectById(id);
 
