@@ -1,10 +1,10 @@
 import Link from "next/link";
+import { getProjects } from "@/lib/projects-db";
 
 export default async function OpenSourceProjects() {
-  const res = await fetch("http://localhost:3000/api/projects?type=opensource", {
-    cache: "no-store",
-  });
-  const projects = await res.json();
+  // Fetch only open source projects directly from the DB layer
+  // (no more HTTP round trip to the app's own API route)
+  const projects = await getProjects("opensource");
 
   return (
     <main className="max-w-4xl mx-auto px-4 py-12">

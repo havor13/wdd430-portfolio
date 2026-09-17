@@ -1,9 +1,9 @@
+import { getProjects } from "@/lib/projects-db";
+
 export default async function SchoolProjects() {
-  // Fetch only school projects
-  const res = await fetch("http://localhost:3000/api/projects?type=school", {
-    cache: "no-store", // always get fresh data
-  });
-  const projects = await res.json();
+  // Fetch only school projects directly from the DB layer
+  // (no more HTTP round trip to the app's own API route)
+  const projects = await getProjects("school");
 
   return (
     <main className="max-w-4xl mx-auto px-4 py-12">
